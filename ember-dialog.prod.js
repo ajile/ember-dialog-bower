@@ -241,8 +241,6 @@
 
     ember$dialog$lib$system$manager$$Manager = ember$dialog$lib$system$manager$$Service.extend(Ember.Evented, {
 
-      aaaa: "bbb",
-
       /**
         Used to insert the dialog windows if `namespace` of incoming `controller`
         does not contain `rootElement` property.
@@ -622,7 +620,6 @@
             throw new Ember.Error('The given view unrecognized');
           }
           // Putting the dialog into the DOM
-          // debugger;
           Ember.run(function(){
             dialog.appendTo(rootElement);
           });
@@ -746,7 +743,11 @@
           template = container.lookup("template:" + view);
           // If a template cannot be found by the name, the name is not a
           // template's path it's a template itself.
-          template = template || Ember.Handlebars.compile(view);
+          try {
+            template = template || Ember.Handlebars.compile(view);
+          } catch (e) {
+            Ember.Logger.error("You have to include `ember-template-compiler.js` file to compile templates on fly");
+          }
           // Creating a view by template.
           view = Ember.View.extend({ template: template, controller: controller});
         } else if (Ember.typeOf(view) === 'class') {
@@ -906,7 +907,7 @@
     Ember.TEMPLATES["dialog"] = Ember.HTMLBars.template((function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -962,7 +963,7 @@
     }()));Ember.TEMPLATES["dialogs/alert"] = Ember.HTMLBars.template((function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -1053,7 +1054,7 @@
     }()));Ember.TEMPLATES["dialogs/confirm"] = Ember.HTMLBars.template((function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -1157,7 +1158,7 @@
     }()));Ember.TEMPLATES["dialogs/custom"] = Ember.HTMLBars.template((function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -1197,7 +1198,7 @@
     }()));Ember.TEMPLATES["dialogs/notice"] = Ember.HTMLBars.template((function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
