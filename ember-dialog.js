@@ -451,6 +451,8 @@ define("ember-dialog/system/manager", ["exports"], function(__exports__) {
 
   Manager = Service.extend(Ember.Evented, {
 
+    test: "test",
+
     /**
       Used to insert the dialog windows if `namespace` of incoming `controller`
       does not contain `rootElement` property.
