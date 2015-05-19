@@ -241,8 +241,6 @@
 
     ember$dialog$lib$system$manager$$Manager = ember$dialog$lib$system$manager$$Service.extend(Ember.Evented, {
 
-      aaaa: "aaaa",
-
       /**
         Used to insert the dialog windows if `namespace` of incoming `controller`
         does not contain `rootElement` property.
