@@ -224,7 +224,7 @@
 
     var ember$dialog$lib$components$presenter$$default = ember$dialog$lib$components$presenter$$Presenter;
     var ember$dialog$lib$core$$Dialog = Ember.Namespace.create({
-      VERSION: '2.0.0'
+      VERSION: '2.0.0-beta'
     });
 
     if (Ember.libraries) {

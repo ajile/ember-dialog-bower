@@ -1,8 +1,8 @@
 {
   "name": "ember-dialog",
-  "repo": "components/ember-dialog",
+  "repo": "ember-dialog-bower/ember-dialog",
   "description": "A data persistence library for Ember.js.",
-  "version": "2.0.0",
+  "version": "2.0.0-beta",
   "main": "ember-dialog.js",
   "scripts": [
     "ember-dialog.js",
