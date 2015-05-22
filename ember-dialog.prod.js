@@ -737,7 +737,7 @@
       */
       _getView: function(view, controller) {
         var template = '',
-          container = controller.container || this.container;
+            container = controller.container || this.container;
         if (Ember.typeOf(view) === 'string') {
           // The view comes as a string. Necessary to find it by the name in the registry.
           template = container.lookup("template:" + view);
@@ -746,7 +746,7 @@
           try {
             template = template || Ember.Handlebars.compile(view);
           } catch (e) {
-            Ember.Logger.error("You have to include `ember-template-compiler.js` file to compile templates on fly");
+            throw new Error("You have to include `ember-template-compiler.js` file to compile templates on fly. If you don't want to, you should provide a view instead or template name.");
           }
           // Creating a view by template.
           view = Ember.View.extend({ template: template, controller: controller});

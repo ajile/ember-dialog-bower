@@ -505,8 +505,14 @@ test('tests/utils-test.js should pass jshint', function() {
       }
     });
 
-    test("Test keeper", function() {
-      ok(true, "placeholder");
+    test("The dialog should throw an exception when compiler wasn't included", function() {
+      var __originCompile = Ember.Handlebars.compile;
+      Ember.Handlebars.compile = function(view) { throw ""; };
+      run(function() {
+        var template = "Hello I'm template";
+        throws(function() { manager.alert(template); });
+        Ember.Handlebars.compile = __originCompile;
+      });
     });
 
     var run = Ember.run, manager, app;
